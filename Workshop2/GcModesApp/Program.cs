@@ -1,8 +1,8 @@
 ﻿using System.Collections.Concurrent;
 using System.Diagnostics.Metrics;
-using OptimizationWorkshops.Workshop2.GcModes;
+using GcModesApp;
 
-var meter = new Meter("OptimizationWorkshops.Workshop2.GcModes");
+var meter = new Meter("GcModesApp");
 var counter = meter.CreateCounter<long>("Operation count");
 
 var concurrentQueue = new ConcurrentQueue<DataFrame>();

@@ -5,8 +5,9 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
-
+  
     <ItemGroup>
+      <PackageReference Include="MathNet.Numerics" Version="5.0.0" />
       <PackageReference Include="Microsoft.Data.Sqlite" Version="7.0.8" />
     </ItemGroup>
 

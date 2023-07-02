@@ -1,9 +1,9 @@
 ﻿using System.Diagnostics;
 using System.Diagnostics.Metrics;
 using System.Numerics;
-using OptimizationWorkshops.Workshop1.DotnetCounters;
+using DotnetCountersApp;
 
-var meter = new Meter("OptimizationWorkshops.Workshop1.DotnetCounters");
+var meter = new Meter("DotnetCountersApp");
 var counter = meter.CreateCounter<long>("Multiplication count");
 var histogram = meter.CreateHistogram<double>("Multiplication time in nanoseconds");
 

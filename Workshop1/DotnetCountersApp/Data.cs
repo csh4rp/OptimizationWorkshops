@@ -1,4 +1,4 @@
-namespace OptimizationWorkshops.Workshop1.DotnetCounters;
+namespace DotnetCountersApp;
 
 public record Data
 {

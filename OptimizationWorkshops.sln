@@ -2,17 +2,23 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workshop1", "Workshop1", "{D9C97FB3-1AF2-41C6-86B7-2D55E0974037}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptimizationWorkshops.Workshop1.BenchmarkNet", "Workshop1\OptimizationWorkshops.Workshop1.BenchmarkNet\OptimizationWorkshops.Workshop1.BenchmarkNet.csproj", "{99C75B08-0946-4FD8-81A7-CBD43C12271B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenchmarkNetApp", "Workshop1\BenchmarkNetApp\BenchmarkNetApp.csproj", "{99C75B08-0946-4FD8-81A7-CBD43C12271B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptimizationWorkshops.Workshop1.DotnetCounters", "Workshop1\OptimizationWorkshops.Workshop1.DotnetCounters\OptimizationWorkshops.Workshop1.DotnetCounters.csproj", "{9B12F05C-042D-44E8-8A55-98E4E80E398D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetCountersApp", "Workshop1\DotnetCountersApp\DotnetCountersApp.csproj", "{9B12F05C-042D-44E8-8A55-98E4E80E398D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workshop2", "Workshop2", "{EC01846C-A775-4BEB-BF56-F2243DEDBE28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptimizationWorkshops.Workshop2.GcModes", "Workshop2\OptimizationWorkshops.Workshop2.GcModes\OptimizationWorkshops.Workshop2.GcModes.csproj", "{B0DFE5F9-2DBB-4B83-9269-23621A737F0F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GcModesApp", "Workshop2\GcModesApp\GcModesApp.csproj", "{B0DFE5F9-2DBB-4B83-9269-23621A737F0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptimizationWorkshops.Workshop1.WebBackend", "Workshop1\OptimizationWorkshops.Workshop1.WebBackend\OptimizationWorkshops.Workshop1.WebBackend.csproj", "{B58B7E70-AB18-4311-A2F0-5EBF9966766A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebBackend", "Workshop1\WebBackend\WebBackend.csproj", "{B58B7E70-AB18-4311-A2F0-5EBF9966766A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptimizationWorkshops.Workshop1.NBomber", "Workshop1\OptimizationWorkshops.Workshop1.NBomber\OptimizationWorkshops.Workshop1.NBomber.csproj", "{84419A29-C550-4D13-8538-0905385EE660}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBomberApp", "Workshop1\NBomberApp\NBomberApp.csproj", "{84419A29-C550-4D13-8538-0905385EE660}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GcGenerationsApp", "Workshop2\GcGenerationsApp\GcGenerationsApp.csproj", "{2DF95EDF-2B6E-4A3E-AFA0-B1DC4E9D8E77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryLeak", "Workshop2\MemoryLeak\MemoryLeak.csproj", "{ADCCD500-29AB-4087-8116-5E40C3FD5F8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryLeakNBomber", "Workshop2\MemoryLeakNBomber\MemoryLeakNBomber.csproj", "{A4705972-C1ED-451C-A95E-7A2EC3434B5D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +31,9 @@ Global
 		{B0DFE5F9-2DBB-4B83-9269-23621A737F0F} = {EC01846C-A775-4BEB-BF56-F2243DEDBE28}
 		{B58B7E70-AB18-4311-A2F0-5EBF9966766A} = {D9C97FB3-1AF2-41C6-86B7-2D55E0974037}
 		{84419A29-C550-4D13-8538-0905385EE660} = {D9C97FB3-1AF2-41C6-86B7-2D55E0974037}
+		{2DF95EDF-2B6E-4A3E-AFA0-B1DC4E9D8E77} = {EC01846C-A775-4BEB-BF56-F2243DEDBE28}
+		{ADCCD500-29AB-4087-8116-5E40C3FD5F8C} = {EC01846C-A775-4BEB-BF56-F2243DEDBE28}
+		{A4705972-C1ED-451C-A95E-7A2EC3434B5D} = {EC01846C-A775-4BEB-BF56-F2243DEDBE28}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{99C75B08-0946-4FD8-81A7-CBD43C12271B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -47,5 +56,17 @@ Global
 		{84419A29-C550-4D13-8538-0905385EE660}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84419A29-C550-4D13-8538-0905385EE660}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84419A29-C550-4D13-8538-0905385EE660}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DF95EDF-2B6E-4A3E-AFA0-B1DC4E9D8E77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DF95EDF-2B6E-4A3E-AFA0-B1DC4E9D8E77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DF95EDF-2B6E-4A3E-AFA0-B1DC4E9D8E77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DF95EDF-2B6E-4A3E-AFA0-B1DC4E9D8E77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADCCD500-29AB-4087-8116-5E40C3FD5F8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADCCD500-29AB-4087-8116-5E40C3FD5F8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADCCD500-29AB-4087-8116-5E40C3FD5F8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADCCD500-29AB-4087-8116-5E40C3FD5F8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4705972-C1ED-451C-A95E-7A2EC3434B5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4705972-C1ED-451C-A95E-7A2EC3434B5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4705972-C1ED-451C-A95E-7A2EC3434B5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4705972-C1ED-451C-A95E-7A2EC3434B5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

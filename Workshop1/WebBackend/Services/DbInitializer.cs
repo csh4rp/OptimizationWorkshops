@@ -1,20 +1,17 @@
 ﻿using System.Data;
 using Microsoft.Data.Sqlite;
 
-namespace OptimizationWorkshops.Workshop1.WebBackend;
+namespace WebBackend.Services;
 
 public class DbInitializer
 {
     private readonly SqliteConnection _dbConnection;
 
-    public DbInitializer(SqliteConnection dbConnection)
-    {
-        _dbConnection = dbConnection;
-    }
+    public DbInitializer(SqliteConnection dbConnection) => _dbConnection = dbConnection;
 
     public async Task InitializeAsync()
     {
-        var numberOfItems = 1000;
+        var numberOfItems = 10000;
 
         if (_dbConnection.State is not ConnectionState.Open)
         {
@@ -45,15 +42,15 @@ public class DbInitializer
         
             var xParameter = insertCommand.CreateParameter();
             xParameter.ParameterName = "@X";
-            xParameter.Value = Random.Shared.NextDouble();
+            xParameter.Value = Random.Shared.Next(-1, 1) * Random.Shared.NextDouble();
         
             var yParameter = insertCommand.CreateParameter();
             yParameter.ParameterName = "@Y";
-            yParameter.Value = Random.Shared.NextDouble();
+            yParameter.Value = Random.Shared.Next(-1, 1) * Random.Shared.NextDouble();
         
             var zParameter = insertCommand.CreateParameter();
             zParameter.ParameterName = "@Z";
-            zParameter.Value = Random.Shared.NextDouble();
+            zParameter.Value = Random.Shared.Next(-1, 1) * Random.Shared.NextDouble();
             
             insertCommand.Parameters.Add(timestampParameter);
             insertCommand.Parameters.Add(xParameter);

@@ -1,6 +1,6 @@
 using BenchmarkDotNet.Attributes;
 
-namespace OptimizationWorkshops.Workshop1.BenchmarkNet;
+namespace BenchmarkNetApp;
 
 [MemoryDiagnoser]
 [DisassemblyDiagnoser]

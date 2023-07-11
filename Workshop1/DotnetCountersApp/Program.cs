@@ -7,12 +7,13 @@ var meter = new Meter("DotnetCountersApp");
 var counter = meter.CreateCounter<long>("Multiplication count");
 var histogram = meter.CreateHistogram<double>("Multiplication time in nanoseconds");
 
-var iterationNumber = 0L;
+var iteration = 0L;
+
 while (true)
 {
     var list = new List<Data>(1000);
 
-    for (var i = iterationNumber; i < iterationNumber + 1000; i++)
+    for (var i = iteration; i < iteration + 1000; i++)
     {
         list.Add(new Data
         {
@@ -41,5 +42,5 @@ while (true)
 
     histogram.Record(Stopwatch.GetElapsedTime(timestamp).TotalNanoseconds);
 
-    iterationNumber++;
+    iteration++;
 }

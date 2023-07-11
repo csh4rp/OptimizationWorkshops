@@ -1,4 +1,6 @@
-﻿namespace WebBackend.Models;
+﻿using WebBackend.Models;
+
+namespace MemoryLeak.Models;
 
 public record DataFrameSummaryDto
 {
@@ -38,6 +40,6 @@ public record DataFrameSummaryDto
     
     public required double Z50Percentile { get; init; }
     
-    public required long NumberOfDataFrames { get; init; }
+    public required List<DataFrameDto> DataFrames { get; init; }
 }
 

@@ -1,7 +1,7 @@
-﻿using Microsoft.Data.Sqlite;
+﻿using MemoryLeak.Models;
+using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.Caching.Memory;
 using WebBackend.Models;
-using WebBackend.Services;
 
 namespace MemoryLeak.Services;
 
@@ -10,9 +10,9 @@ public class DataService : IDataService
     private readonly SqliteConnection _connection;
     private readonly IMemoryCache _memoryCache;
 
-    public DataService(SqliteConnection connection, IMemoryCache memoryCache)
+    public DataService(IConfiguration configuration, IMemoryCache memoryCache)
     {
-        _connection = connection;
+        _connection = new SqliteConnection(configuration.GetConnectionString("Sqlite"));
         _memoryCache = memoryCache;
     }
 
@@ -47,11 +47,14 @@ public class DataService : IDataService
         insertCommand.ExecuteNonQuery();
     }
 
-    public async Task<DataFrameSummaryDto> GetSummaryAsync(DateTimeOffset tillTime, CancellationToken cancellationToken)
+    public async Task<DataFrameStdDevDto> GetSummaryAsync(DateTimeOffset tillTime, CancellationToken cancellationToken)
     {
         if (_memoryCache.TryGetValue<DataFrameSummaryDto>($"summary:{tillTime.ToUnixTimeMilliseconds()}", out var summary))
         {
-            return summary!;
+            return new DataFrameStdDevDto
+            {
+                XStdDev = summary!.XStdDev, YStdDev = summary.YStdDev, ZStdDev = summary.ZStdDev
+            };
         }
         
         await _connection.OpenAsync(cancellationToken);
@@ -68,6 +71,8 @@ public class DataService : IDataService
         var xData = new List<double>();
         var yData = new List<double>();
         var zData = new List<double>();
+
+        var dataFrames = new List<DataFrameDto>();
         
         while (await reader.ReadAsync(cancellationToken))
         {
@@ -78,6 +83,8 @@ public class DataService : IDataService
             xData.Add(x);
             yData.Add(y);
             zData.Add(z);
+            
+            dataFrames.Add(new DataFrameDto(x, y, z));
         }
         
         summary = new DataFrameSummaryDto
@@ -100,12 +107,16 @@ public class DataService : IDataService
             X50Percentile = MathNet.Numerics.Statistics.Statistics.Percentile(xData, 50),
             Y50Percentile = MathNet.Numerics.Statistics.Statistics.Percentile(yData, 50),
             Z50Percentile = MathNet.Numerics.Statistics.Statistics.Percentile(zData, 50),
-            NumberOfDataFrames = xData.Count
+            DataFrames = dataFrames
         };
         
         using var entry = _memoryCache.CreateEntry($"summary:{tillTime.ToUnixTimeMilliseconds()}");
+        entry.AbsoluteExpiration = DateTimeOffset.UtcNow.AddHours(1);
         entry.Value = summary;
 
-        return summary;
+        return new DataFrameStdDevDto
+        {
+            XStdDev = summary.XStdDev, YStdDev = summary.YStdDev, ZStdDev = summary.ZStdDev
+        };
     }
 }

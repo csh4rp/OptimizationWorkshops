@@ -1,18 +1,10 @@
 using MemoryLeak.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Data.Sqlite;
 using WebBackend.Models;
-using WebBackend.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services
-    .AddScoped<SqliteConnection>(_ =>
-    {
-        var connectionString = builder.Configuration.GetConnectionString("Sqlite");
-        var connection = new SqliteConnection(connectionString);
-        return connection;
-    })
     .AddScoped<DbInitializer>()
     .AddScoped<IDataService, DataService>()
     .AddMemoryCache();

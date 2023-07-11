@@ -1,10 +1,11 @@
-﻿using WebBackend.Models;
+﻿using MemoryLeak.Models;
+using WebBackend.Models;
 
-namespace WebBackend.Services;
+namespace MemoryLeak.Services;
 
 public interface IDataService
 {
     Task SaveAsync(DataFrameDto dto, CancellationToken cancellationToken);
     
-    Task<DataFrameSummaryDto> GetSummaryAsync(DateTimeOffset tillTime, CancellationToken cancellationToken);
+    Task<DataFrameStdDevDto> GetSummaryAsync(DateTimeOffset tillTime, CancellationToken cancellationToken);
 }

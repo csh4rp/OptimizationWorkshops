@@ -11,6 +11,8 @@ public class DbInitializer
 
     public async Task InitializeAsync()
     {
+        Console.WriteLine("Running DB seed...");
+        
         var numberOfItems = 10000;
 
         if (_dbConnection.State is not ConnectionState.Open)

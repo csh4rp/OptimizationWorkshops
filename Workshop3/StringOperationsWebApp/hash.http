@@ -1,0 +1,6 @@
+POST http://localhost:5010/hash
+Content-Type: application/json
+
+{
+  "input": "foo"
+}

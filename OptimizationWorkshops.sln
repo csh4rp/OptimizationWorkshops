@@ -10,15 +10,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workshop2", "Workshop2", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GcModesApp", "Workshop2\GcModesApp\GcModesApp.csproj", "{B0DFE5F9-2DBB-4B83-9269-23621A737F0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebBackend", "Workshop1\WebBackend\WebBackend.csproj", "{B58B7E70-AB18-4311-A2F0-5EBF9966766A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebBackendApp", "Workshop1\WebBackendApp\WebBackendApp.csproj", "{B58B7E70-AB18-4311-A2F0-5EBF9966766A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBomberApp", "Workshop1\NBomberApp\NBomberApp.csproj", "{84419A29-C550-4D13-8538-0905385EE660}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GcGenerationsApp", "Workshop2\GcGenerationsApp\GcGenerationsApp.csproj", "{2DF95EDF-2B6E-4A3E-AFA0-B1DC4E9D8E77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryLeak", "Workshop2\MemoryLeak\MemoryLeak.csproj", "{ADCCD500-29AB-4087-8116-5E40C3FD5F8C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryLeakApp", "Workshop2\MemoryLeakApp\MemoryLeakApp.csproj", "{ADCCD500-29AB-4087-8116-5E40C3FD5F8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryLeakNBomber", "Workshop2\MemoryLeakNBomber\MemoryLeakNBomber.csproj", "{A4705972-C1ED-451C-A95E-7A2EC3434B5D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryLeakNBomberApp", "Workshop2\MemoryLeakNBomberApp\MemoryLeakNBomberApp.csproj", "{A4705972-C1ED-451C-A95E-7A2EC3434B5D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workshop3", "Workshop3", "{4F93893B-AB35-4AE0-BF7F-FDEB6606FB1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringOperationsBenchmarkApp", "Workshop3\StringOperationsBenchmarkApp\StringOperationsBenchmarkApp.csproj", "{D6BE0EFB-07CA-4451-B799-4F5E1A3FCC72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringOperationsWebApp", "Workshop3\StringOperationsWebApp\StringOperationsWebApp.csproj", "{F93A355E-7FDA-4090-8D2C-E1244905A6CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringOperationsNBomberApp", "Workshop3\StringOperationsNBomberApp\StringOperationsNBomberApp.csproj", "{6C439F5E-8D3E-4C66-A3B6-2931AC3A9823}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,6 +42,9 @@ Global
 		{2DF95EDF-2B6E-4A3E-AFA0-B1DC4E9D8E77} = {EC01846C-A775-4BEB-BF56-F2243DEDBE28}
 		{ADCCD500-29AB-4087-8116-5E40C3FD5F8C} = {EC01846C-A775-4BEB-BF56-F2243DEDBE28}
 		{A4705972-C1ED-451C-A95E-7A2EC3434B5D} = {EC01846C-A775-4BEB-BF56-F2243DEDBE28}
+		{D6BE0EFB-07CA-4451-B799-4F5E1A3FCC72} = {4F93893B-AB35-4AE0-BF7F-FDEB6606FB1A}
+		{F93A355E-7FDA-4090-8D2C-E1244905A6CC} = {4F93893B-AB35-4AE0-BF7F-FDEB6606FB1A}
+		{6C439F5E-8D3E-4C66-A3B6-2931AC3A9823} = {4F93893B-AB35-4AE0-BF7F-FDEB6606FB1A}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{99C75B08-0946-4FD8-81A7-CBD43C12271B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -68,5 +79,17 @@ Global
 		{A4705972-C1ED-451C-A95E-7A2EC3434B5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4705972-C1ED-451C-A95E-7A2EC3434B5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4705972-C1ED-451C-A95E-7A2EC3434B5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6BE0EFB-07CA-4451-B799-4F5E1A3FCC72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6BE0EFB-07CA-4451-B799-4F5E1A3FCC72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6BE0EFB-07CA-4451-B799-4F5E1A3FCC72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6BE0EFB-07CA-4451-B799-4F5E1A3FCC72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F93A355E-7FDA-4090-8D2C-E1244905A6CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F93A355E-7FDA-4090-8D2C-E1244905A6CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F93A355E-7FDA-4090-8D2C-E1244905A6CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F93A355E-7FDA-4090-8D2C-E1244905A6CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C439F5E-8D3E-4C66-A3B6-2931AC3A9823}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C439F5E-8D3E-4C66-A3B6-2931AC3A9823}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C439F5E-8D3E-4C66-A3B6-2931AC3A9823}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C439F5E-8D3E-4C66-A3B6-2931AC3A9823}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

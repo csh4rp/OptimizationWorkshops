@@ -1,4 +1,5 @@
-﻿using WebBackend.Models;
+﻿using System.Text.Json.Serialization;
+using WebBackend.Models;
 
 namespace MemoryLeakApp.Models;
 
@@ -40,6 +41,7 @@ public record DataFrameSummaryDto
     
     public required double Z50Percentile { get; init; }
     
+    [JsonIgnore]
     public required List<DataFrameDto> DataFrames { get; init; }
 }
 

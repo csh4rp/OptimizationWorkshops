@@ -63,6 +63,17 @@ do
         case 'f':
             data.Clear();
             GC.Collect(2, GCCollectionMode.Aggressive, true, true);
+            var fgc = GC.GetGCMemoryInfo(GCKind.Any);
+            Console.WriteLine();
+            Console.WriteLine("Gen 0 collection count: " + GC.CollectionCount(0));
+            Console.WriteLine("Gen 1 collection count: " + GC.CollectionCount(1));
+            Console.WriteLine("Gen 2 collection count: " + GC.CollectionCount(2));
+            Console.WriteLine("Gen 0 size: " + fgc.GenerationInfo[0].SizeBeforeBytes + " -> " +
+                              fgc.GenerationInfo[0].SizeAfterBytes);
+            Console.WriteLine("Gen 1 size: " + fgc.GenerationInfo[1].SizeBeforeBytes + " -> " +
+                              fgc.GenerationInfo[1].SizeAfterBytes);
+            Console.WriteLine("Gen 2 size: " + fgc.GenerationInfo[2].SizeBeforeBytes + " -> " +
+                              fgc.GenerationInfo[2].SizeAfterBytes);
             break;
     }
 

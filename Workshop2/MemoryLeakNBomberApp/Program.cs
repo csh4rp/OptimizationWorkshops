@@ -20,9 +20,9 @@ var postScenario = Scenario.Create("post_data", async cnx =>
 
         return response;
     })
-    .WithLoadSimulations(Simulation.Inject(rate: 5,
+    .WithLoadSimulations(Simulation.Inject(rate: 3,
         interval: TimeSpan.FromMilliseconds(100),
-        during: TimeSpan.FromMinutes(1)));
+        during: TimeSpan.FromMinutes(30)));
 
 var getScenario = Scenario.Create("get_summary", async cnx =>
     {
@@ -32,7 +32,7 @@ var getScenario = Scenario.Create("get_summary", async cnx =>
 
         return response;
     })
-    .WithLoadSimulations(Simulation.Pause(TimeSpan.FromSeconds(60)), Simulation.Inject(rate: 5,
+    .WithLoadSimulations(Simulation.Inject(rate: 5,
         interval: TimeSpan.FromMilliseconds(100),
         during: TimeSpan.FromMinutes(30)));
 

@@ -21,7 +21,7 @@ var postScenario = Scenario.Create("post_data", async _ =>
     })
     .WithLoadSimulations(Simulation.Inject(rate: 250,
         interval: TimeSpan.FromMilliseconds(10),
-        during: TimeSpan.FromMinutes(1)));
+        during: TimeSpan.FromHours(5)));
 
 NBomberRunner.RegisterScenarios(postScenario)
     .Run();

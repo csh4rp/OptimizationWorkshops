@@ -28,6 +28,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringOperationsWebApp", "W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringOperationsNBomberApp", "Workshop3\StringOperationsNBomberApp\StringOperationsNBomberApp.csproj", "{6C439F5E-8D3E-4C66-A3B6-2931AC3A9823}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StructsAllocationsBenchmarkApp", "Workshop3\StructsAllocationsBenchmarkApp\StructsAllocationsBenchmarkApp.csproj", "{F9B0737D-4A1C-4741-B867-CA0CB99A3323}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StructsCopyBenchmarkApp", "Workshop3\StructsCopyBenchmarkApp\StructsCopyBenchmarkApp.csproj", "{41FD3B0E-CF13-4CE7-B9A9-E243769A9EAA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,8 @@ Global
 		{D6BE0EFB-07CA-4451-B799-4F5E1A3FCC72} = {4F93893B-AB35-4AE0-BF7F-FDEB6606FB1A}
 		{F93A355E-7FDA-4090-8D2C-E1244905A6CC} = {4F93893B-AB35-4AE0-BF7F-FDEB6606FB1A}
 		{6C439F5E-8D3E-4C66-A3B6-2931AC3A9823} = {4F93893B-AB35-4AE0-BF7F-FDEB6606FB1A}
+		{F9B0737D-4A1C-4741-B867-CA0CB99A3323} = {4F93893B-AB35-4AE0-BF7F-FDEB6606FB1A}
+		{41FD3B0E-CF13-4CE7-B9A9-E243769A9EAA} = {4F93893B-AB35-4AE0-BF7F-FDEB6606FB1A}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{99C75B08-0946-4FD8-81A7-CBD43C12271B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -91,5 +97,13 @@ Global
 		{6C439F5E-8D3E-4C66-A3B6-2931AC3A9823}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C439F5E-8D3E-4C66-A3B6-2931AC3A9823}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C439F5E-8D3E-4C66-A3B6-2931AC3A9823}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9B0737D-4A1C-4741-B867-CA0CB99A3323}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9B0737D-4A1C-4741-B867-CA0CB99A3323}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9B0737D-4A1C-4741-B867-CA0CB99A3323}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9B0737D-4A1C-4741-B867-CA0CB99A3323}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41FD3B0E-CF13-4CE7-B9A9-E243769A9EAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41FD3B0E-CF13-4CE7-B9A9-E243769A9EAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41FD3B0E-CF13-4CE7-B9A9-E243769A9EAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41FD3B0E-CF13-4CE7-B9A9-E243769A9EAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

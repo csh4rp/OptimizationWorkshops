@@ -1,4 +1,5 @@
 ﻿using BenchmarkDotNet.Attributes;
+using IterationBenchmarkApp.Models;
 
 namespace IterationBenchmarkApp;
 
@@ -44,6 +45,20 @@ public class Benchmark
         int value;
         
         foreach (var item in EnumerableList)
+        {
+            value = item;
+        }
+    }
+    
+        
+    [Benchmark]
+    public void IterateAsIReadonlyCollection()
+    {
+        int value;
+
+        var collection = EnumerableList as IReadOnlyCollection<int> ?? EnumerableList.ToList();
+        
+        foreach (var item in collection)
         {
             value = item;
         }

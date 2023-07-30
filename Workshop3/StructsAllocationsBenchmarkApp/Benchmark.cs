@@ -1,4 +1,6 @@
-﻿using BenchmarkDotNet.Attributes;
+﻿using System.Buffers;
+using BenchmarkDotNet.Attributes;
+using Microsoft.Data.Sqlite;
 using StructsAllocationsBenchmarkApp.Models;
 
 namespace StructsAllocationsBenchmarkApp;
@@ -6,49 +8,115 @@ namespace StructsAllocationsBenchmarkApp;
 [MemoryDiagnoser]
 public class Benchmark
 {
-    private const int NumberOfItems = 10_000;
+    private readonly SqliteConnection _connection;
+
+    public Benchmark()
+    {
+        _connection = new("Data Source=mydb.db;");
+        _connection.Open();
+    }
     
     [Benchmark]
-    public void AllocateClass()
+    public void RunClass()
     {
-        var items = new List<DataFrameClass>();
+        var data = new List<DataFrameClass>();
+        
+        using var createTableCommand = _connection.CreateCommand();
+        createTableCommand.CommandText = "SELECT Timestamp, X, Y, Z FROM DataFrame LIMIT 1000;";
+        using var reader = createTableCommand.ExecuteReader();
 
-        for (int i = 0; i < NumberOfItems; i++)
+        while (reader.Read())
         {
-            items.Add(new DataFrameClass
+            var timestamp = reader.GetInt64(0);
+            var x = reader.GetDouble(1);
+            var y = reader.GetDouble(2);
+            var z = reader.GetDouble(3);
+            
+            data.Add(new DataFrameClass
             {
-                X = 1,
-                Y = 1,
-                Z = 1
+                Timestamp = DateTimeOffset.FromUnixTimeMilliseconds(timestamp),
+                X = x,
+                Y = y,
+                Z = z
             });
         }
-    } 
+    }
     
     [Benchmark]
-    public void AllocateStruct()
+    public void RunStruct()
     {
-        var items = new List<DataFrameStruct>();
+        var data = new List<DataFrameStruct>();
+        
+        using var createTableCommand = _connection.CreateCommand();
+        createTableCommand.CommandText = "SELECT Timestamp, X, Y, Z FROM DataFrame LIMIT 1000;";
+        using var reader = createTableCommand.ExecuteReader();
 
-        for (int i = 0; i < NumberOfItems; i++)
+        while (reader.Read())
         {
-            items.Add(new DataFrameStruct()
+            var timestamp = reader.GetInt64(0);
+            var x = reader.GetDouble(1);
+            var y = reader.GetDouble(2);
+            var z = reader.GetDouble(3);
+            
+            data.Add(new DataFrameStruct
             {
-                X = 1,
-                Y = 1,
-                Z = 1
+                Timestamp = DateTimeOffset.FromUnixTimeMilliseconds(timestamp),
+                X = x,
+                Y = y,
+                Z = z
             });
         }
-    } 
+    }
     
     [Benchmark]
-    public void AllocateStack()
+    public void RunClassPreAllocated()
     {
-        Span<DataFrameStruct> items = stackalloc DataFrameStruct[NumberOfItems];
+        var data = new List<DataFrameClass>(1000);
 
-        for (int i = 0; i < NumberOfItems; i++)
+        using var createTableCommand = _connection.CreateCommand();
+        createTableCommand.CommandText = "SELECT Timestamp, X, Y, Z FROM DataFrame LIMIT 1000;";
+        using var reader = createTableCommand.ExecuteReader();
+        
+        while (reader.Read())
         {
-            items[i] = new DataFrameStruct { X = 1, Y = 1, Z = 1 };
+            var timestamp = reader.GetInt64(0);
+            var x = reader.GetDouble(1);
+            var y = reader.GetDouble(2);
+            var z = reader.GetDouble(3);
+            
+            data.Add(new DataFrameClass
+            {
+                Timestamp = DateTimeOffset.FromUnixTimeMilliseconds(timestamp),
+                X = x,
+                Y = y,
+                Z = z
+            });
         }
-    } 
+    }
+    
+    [Benchmark]
+    public void RunStructBuffer()
+    {
+        var data = new List<DataFrameStruct>(1000);
 
+        using var createTableCommand = _connection.CreateCommand();
+        createTableCommand.CommandText = "SELECT Timestamp, X, Y, Z FROM DataFrame LIMIT 1000;";
+        using var reader = createTableCommand.ExecuteReader();
+        
+        while (reader.Read())
+        {
+            var timestamp = reader.GetInt64(0);
+            var x = reader.GetDouble(1);
+            var y = reader.GetDouble(2);
+            var z = reader.GetDouble(3);
+            
+            data.Add(new DataFrameStruct
+            {
+                Timestamp = DateTimeOffset.FromUnixTimeMilliseconds(timestamp),
+                X = x,
+                Y = y,
+                Z = z
+            });
+        }
+    }
 }

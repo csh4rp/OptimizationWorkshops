@@ -9,6 +9,20 @@
 
     <ItemGroup>
       <PackageReference Include="BenchmarkDotNet" Version="0.13.6" />
+      <PackageReference Include="Microsoft.Data.Sqlite" Version="7.0.9" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Microsoft.Data.Sqlite">
+        <HintPath>..\..\..\..\..\.nuget\packages\microsoft.data.sqlite.core\7.0.8\lib\net6.0\Microsoft.Data.Sqlite.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="mydb.db" />
+      <Content Include="mydb.db">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
 </Project>

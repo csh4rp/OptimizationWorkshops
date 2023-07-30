@@ -1,7 +1,9 @@
-﻿namespace StructsAllocationsBenchmarkApp.Models;
+﻿namespace IterationBenchmarkApp.Models;
 
-public struct DataFrameStruct
+public record DataFrame
 {
+    public required Guid Id { get; init; }
+    
     public required DateTimeOffset Timestamp { get; init; }
     
     public required double X { get; init; }

@@ -1,6 +1,6 @@
 ﻿namespace StructsCopyBenchmarkApp.Models;
 
-public struct DataFrameStruct
+public struct DataFrameStruct : IDataFrame
 {
     public required double X { get; init; }
     

@@ -4,9 +4,7 @@ namespace StructsAllocationsBenchmarkApp;
 
 public class DbInitializer : IDisposable
 {
-    private readonly SqliteConnection _dbConnection;
-
-    public DbInitializer() => _dbConnection = new SqliteConnection("Data Source=mydb.db;");
+    private readonly SqliteConnection _dbConnection = new("Data Source=mydb.db;");
 
     public async Task InitializeAsync()
     {

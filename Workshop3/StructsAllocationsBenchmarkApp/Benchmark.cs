@@ -95,7 +95,7 @@ public class Benchmark
     }
     
     [Benchmark]
-    public void RunStructBuffer()
+    public void RunStructPreAllocated()
     {
         var data = new List<DataFrameStruct>(1000);
 

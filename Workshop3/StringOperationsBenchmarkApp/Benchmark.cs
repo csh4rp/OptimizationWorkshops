@@ -6,7 +6,8 @@ namespace StringOperationsBenchmarkApp;
 [MemoryDiagnoser]
 public class Benchmark
 {
-    private const int NumberOfItems = 100;
+    [Params(1, 2, 5, 10, 100, 1000, 10000)]
+    public int NumberOfItems { get; set; }
     
     [Benchmark(Description = "String concatenation")]
     public void RunStringConcat()
@@ -45,7 +46,7 @@ public class Benchmark
     [Benchmark(Description = "String builder with preset capacity")]
     public void RunStringBuilderWithCapacity()
     {
-        var str = new StringBuilder("Test String", 256);
+        var str = new StringBuilder("Test String", 10100);
         
         for (int i = 0; i < NumberOfItems; i++)
         {

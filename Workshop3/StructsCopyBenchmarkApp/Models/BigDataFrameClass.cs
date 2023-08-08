@@ -1,16 +1,16 @@
 ﻿namespace StructsCopyBenchmarkApp.Models;
 
-public class BigDataFrameClass
+public class BigDataFrameClass : IBigDataFrame
 {
-    public DateTimeOffset Timestamp { get; init; }
+    public required DateTimeOffset Timestamp { get; init; }
     
-    public required double X { get; init; }
+    public required decimal X { get; init; }
     
-    public required double Y { get; init; }
+    public required decimal Y { get; init; }
     
-    public required double Z { get; init; }
+    public required decimal Z { get; init; }
     
-    public required double Avg { get; init; }
+    public required decimal Avg { get; init; }
     
-    public required double Med { get; init; }
+    public required decimal Med { get; init; }
 }

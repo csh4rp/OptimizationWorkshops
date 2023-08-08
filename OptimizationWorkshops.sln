@@ -30,7 +30,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StructsCopyBenchmarkApp", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workshop4", "Workshop4", "{47EF5A61-BB27-41D8-80C7-FEC5BC1A931E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpansBenchmarkApp", "Workshop4\SpansBenchmarkApp\SpansBenchmarkApp.csproj", "{73035945-60CE-4A64-BEA6-B0B3A8002671}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpansBenchmarkApp", "Workshop3\SpansBenchmarkApp\SpansBenchmarkApp.csproj", "{73035945-60CE-4A64-BEA6-B0B3A8002671}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoolingBenchmarkApp", "Workshop4\PoolingBenchmarkApp\PoolingBenchmarkApp.csproj", "{91CE2081-AF72-42D6-9530-6802E748F894}"
 EndProject

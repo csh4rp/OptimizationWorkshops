@@ -15,17 +15,25 @@ public class Benchmark
     {
         var startIndex = 0;
         var endIndex = Value.IndexOf(',');
+
+        var valueToFind = ValueToFind.AsSpan();
+        var value = Value.AsSpan();
+
         while (endIndex != -1)
         {
-            var value = Value.AsSpan().Slice(startIndex, endIndex - startIndex);
+            var currentValue = value.Slice(startIndex, endIndex - startIndex);
 
-            if (value == ValueToFind)
+            if (valueToFind.SequenceEqual(currentValue))
             {
                 break;
             }
 
             startIndex = endIndex + 1;
             endIndex = Value.IndexOf(',', startIndex);
+            if (endIndex == -1 && startIndex < Value.Length)
+            {
+                endIndex = Value.Length;
+            }
         }
     }
     
@@ -34,9 +42,12 @@ public class Benchmark
     {
         var startIndex = 0;
         var endIndex = Value.IndexOf(',');
+
+        string value;
+        
         while (endIndex != -1)
         {
-            var value = Value.Substring(startIndex, endIndex - startIndex);
+            value = Value.Substring(startIndex, endIndex - startIndex);
 
             if (value == ValueToFind)
             {
@@ -45,6 +56,10 @@ public class Benchmark
 
             startIndex = endIndex + 1;
             endIndex = Value.IndexOf(',', startIndex);
+            if (endIndex == -1 && startIndex < Value.Length)
+            {
+                endIndex = Value.Length;
+            }
         }
     }
     

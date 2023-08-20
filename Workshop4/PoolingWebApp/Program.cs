@@ -1,19 +1,22 @@
 using System.Buffers;
+using Microsoft.IO;
 
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-app.MapGet("/non-buffer", () =>
+var manager = new RecyclableMemoryStreamManager();
+
+app.MapGet("/non-buffered", () =>
 {
     using var ms = new MemoryStream();
     using var fs = File.OpenRead("index.html");
     
     fs.CopyTo(ms);
 
-    Results.Ok();
+    return Results.Ok();
 });
 
-app.MapGet("/buffer", () =>
+app.MapGet("/buffered", () =>
 {
     using var fs = File.OpenRead("index.html");
     var length = (int)fs.Length;
@@ -25,7 +28,17 @@ app.MapGet("/buffer", () =>
         length--;
     }
     
-    Results.Ok();
+    return Results.Ok();
+});
+
+app.MapGet("/recyclable", () =>
+{
+    using var fs = File.OpenRead("index.html");
+    using var ms = manager.GetStream();
+    
+    fs.CopyTo(ms);
+    
+    return Results.Ok();
 });
 
 app.Run();

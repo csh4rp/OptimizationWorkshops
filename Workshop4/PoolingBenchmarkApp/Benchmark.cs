@@ -6,7 +6,8 @@ namespace PoolingBenchmarkApp;
 [MemoryDiagnoser]
 public class Benchmark
 {
-    private const int NumberOfItems = 1000;
+    [Params(10, 100, 1000, 10_000, 100_000)]
+    public int NumberOfItems { get; set; }
     
     [Benchmark]
     public void RunPoll()

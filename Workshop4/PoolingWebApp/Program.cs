@@ -9,9 +9,10 @@ var manager = new RecyclableMemoryStreamManager();
 app.MapGet("/non-buffered", () =>
 {
     using var ms = new MemoryStream();
-    using var fs = File.OpenRead("index.html");
-    
-    fs.CopyTo(ms);
+    using (var fs = File.OpenRead("index.html"))
+    {
+        fs.CopyTo(ms);
+    }
 
     return Results.Ok();
 });
@@ -33,11 +34,12 @@ app.MapGet("/buffered", () =>
 
 app.MapGet("/recyclable", () =>
 {
-    using var fs = File.OpenRead("index.html");
     using var ms = manager.GetStream();
-    
-    fs.CopyTo(ms);
-    
+    using (var fs = File.OpenRead("index.html"))
+    {
+        fs.CopyTo(ms);
+    }
+
     return Results.Ok();
 });
 

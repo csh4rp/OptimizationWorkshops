@@ -10,7 +10,7 @@ public class Benchmark
     public int NumberOfItems { get; set; }
     
     [Benchmark]
-    public void RunPoll()
+    public void RunPool()
     {
         var arr = ArrayPool<long>.Shared.Rent(NumberOfItems);
 
@@ -18,6 +18,19 @@ public class Benchmark
         {
             arr[i] = i;
         }
+    }
+    
+    [Benchmark]
+    public void RunPoolWithReturn()
+    {
+        var arr = ArrayPool<long>.Shared.Rent(NumberOfItems);
+
+        for (var i = 0; i < NumberOfItems; i++)
+        {
+            arr[i] = i;
+        }
+        
+        ArrayPool<long>.Shared.Return(arr);
     }
     
     [Benchmark]

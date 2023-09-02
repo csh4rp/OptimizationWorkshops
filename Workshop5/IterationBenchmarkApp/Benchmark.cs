@@ -9,12 +9,14 @@ public class Benchmark
     private static readonly IEnumerable<int> Enumerable;
     private static readonly IEnumerable<int> EnumerableList;
     private static readonly List<int> List;
+    private static readonly HashSet<int> Set;
 
     static Benchmark()
     {
         Enumerable = System.Linq.Enumerable.Range(1, 1000);
         List = Enumerable.ToList();
         EnumerableList = List;
+        Set = Enumerable.ToHashSet();
     }
     
     [Benchmark]
@@ -59,6 +61,17 @@ public class Benchmark
         var collection = EnumerableList as IReadOnlyCollection<int> ?? EnumerableList.ToList();
         
         foreach (var item in collection)
+        {
+            value = item;
+        }
+    }
+    
+    [Benchmark]
+    public void IterateOverSet()
+    {
+        int value;
+        
+        foreach (var item in Set)
         {
             value = item;
         }

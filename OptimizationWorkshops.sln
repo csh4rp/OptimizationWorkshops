@@ -62,6 +62,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RangeSearchingBenchmarkApp"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreationBenchmarkApp", "Workshop5\CreationBenchmarkApp\CreationBenchmarkApp.csproj", "{3ED95838-94D7-4A65-A730-F615BD89EBCC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnumerableBenchmarkApp", "Workshop5\EnumerableBenchmarkApp\EnumerableBenchmarkApp.csproj", "{1D5026B4-FFE5-49C9-8F91-0D760DA24F7E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +93,7 @@ Global
 		{E0F98F9D-A46E-4724-9676-60C86A3E0C58} = {8782670D-B74C-46D6-8F77-2AC8D55F9449}
 		{9C13B791-67CC-4CB2-A3ED-E39B9253CDF0} = {8782670D-B74C-46D6-8F77-2AC8D55F9449}
 		{3ED95838-94D7-4A65-A730-F615BD89EBCC} = {8782670D-B74C-46D6-8F77-2AC8D55F9449}
+		{1D5026B4-FFE5-49C9-8F91-0D760DA24F7E} = {8782670D-B74C-46D6-8F77-2AC8D55F9449}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{99C75B08-0946-4FD8-81A7-CBD43C12271B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -185,5 +188,9 @@ Global
 		{3ED95838-94D7-4A65-A730-F615BD89EBCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3ED95838-94D7-4A65-A730-F615BD89EBCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3ED95838-94D7-4A65-A730-F615BD89EBCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D5026B4-FFE5-49C9-8F91-0D760DA24F7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D5026B4-FFE5-49C9-8F91-0D760DA24F7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D5026B4-FFE5-49C9-8F91-0D760DA24F7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D5026B4-FFE5-49C9-8F91-0D760DA24F7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

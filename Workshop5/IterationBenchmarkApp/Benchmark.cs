@@ -6,25 +6,45 @@ namespace IterationBenchmarkApp;
 [MemoryDiagnoser]
 public class Benchmark
 {
-    private static readonly IEnumerable<int> Enumerable;
-    private static readonly IEnumerable<int> EnumerableList;
-    private static readonly List<int> List;
-    private static readonly HashSet<int> Set;
+    private readonly IEnumerable<DataFrame> _enumerable;
+    private readonly IEnumerable<DataFrame> _enumerableList;
+    private readonly List<DataFrame> _list = new();
+    private readonly HashSet<DataFrame> _set = new();
+    private readonly LinkedList<DataFrame> _linkedList = new();
+    private readonly Queue<DataFrame> _queue = new();
+    private readonly Stack<DataFrame> _stack = new();
 
-    static Benchmark()
+    public Benchmark()
     {
-        Enumerable = System.Linq.Enumerable.Range(1, 1000);
-        List = Enumerable.ToList();
-        EnumerableList = List;
-        Set = Enumerable.ToHashSet();
+        var source = Enumerable.Range(1, 10_000)
+            .Select(i => new DataFrame
+            {
+                Id = Guid.NewGuid(),
+                Timestamp = DateTimeOffset.UtcNow,
+                X = Random.Shared.NextDouble(),
+                Y = Random.Shared.NextDouble(),
+                Z = Random.Shared.NextDouble()
+            });
+        
+        foreach (var dataFrame in source)
+        {
+            _list.Add(dataFrame);
+            _linkedList.AddLast(dataFrame);
+            _set.Add(dataFrame);
+            _queue.Enqueue(dataFrame);
+            _stack.Push(dataFrame);
+        }
+        
+        _enumerable = source;
+        _enumerableList = _list;
     }
     
     [Benchmark]
     public void IterateOverEnumerable()
     {
-        int value;
+        DataFrame value;
         
-        foreach (var item in Enumerable)
+        foreach (var item in _enumerable)
         {
             value = item;
         }
@@ -33,9 +53,9 @@ public class Benchmark
     [Benchmark]
     public void IterateOverList()
     {
-        int value;
+        DataFrame value;
         
-        foreach (var item in List)
+        foreach (var item in _list)
         {
             value = item;
         }
@@ -44,9 +64,9 @@ public class Benchmark
     [Benchmark]
     public void IterateListAsEnumerable()
     {
-        int value;
+        DataFrame value;
         
-        foreach (var item in EnumerableList)
+        foreach (var item in _enumerableList)
         {
             value = item;
         }
@@ -56,9 +76,9 @@ public class Benchmark
     [Benchmark]
     public void IterateAsIReadonlyCollection()
     {
-        int value;
+        DataFrame value;
 
-        var collection = EnumerableList as IReadOnlyCollection<int> ?? EnumerableList.ToList();
+        var collection = _enumerableList as IReadOnlyCollection<DataFrame> ?? _enumerableList.ToList();
         
         foreach (var item in collection)
         {
@@ -69,9 +89,42 @@ public class Benchmark
     [Benchmark]
     public void IterateOverSet()
     {
-        int value;
+        DataFrame value;
         
-        foreach (var item in Set)
+        foreach (var item in _set)
+        {
+            value = item;
+        }
+    }
+    
+    [Benchmark]
+    public void IterateOverQueue()
+    {
+        DataFrame value;
+        
+        foreach (var item in _queue)
+        {
+            value = item;
+        }
+    }
+    
+    [Benchmark]
+    public void IterateOverStack()
+    {
+        DataFrame value;
+        
+        foreach (var item in _stack)
+        {
+            value = item;
+        }
+    }
+    
+    [Benchmark]
+    public void IterateOverLinkedList()
+    {
+        DataFrame value;
+        
+        foreach (var item in _linkedList)
         {
             value = item;
         }

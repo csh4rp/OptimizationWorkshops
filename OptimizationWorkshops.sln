@@ -60,6 +60,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBomberPollingApp", "Worksh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArraySlicingBenchmarkApp", "Workshop4\ArraySlicingBenchmarkApp\ArraySlicingBenchmarkApp.csproj", "{CFED47FF-02E7-4E38-B7FC-6FDE442308DC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnumerableBenchmark", "Workshop5\EnumerableBenchmark\EnumerableBenchmark.csproj", "{E0F98F9D-A46E-4724-9676-60C86A3E0C58}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -88,6 +90,7 @@ Global
 		{73035945-60CE-4A64-BEA6-B0B3A8002671} = {4F93893B-AB35-4AE0-BF7F-FDEB6606FB1A}
 		{C6841FCC-2E4B-4B2B-A62D-575E23A87CC4} = {47EF5A61-BB27-41D8-80C7-FEC5BC1A931E}
 		{CFED47FF-02E7-4E38-B7FC-6FDE442308DC} = {47EF5A61-BB27-41D8-80C7-FEC5BC1A931E}
+		{E0F98F9D-A46E-4724-9676-60C86A3E0C58} = {8782670D-B74C-46D6-8F77-2AC8D55F9449}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{99C75B08-0946-4FD8-81A7-CBD43C12271B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -178,5 +181,9 @@ Global
 		{CFED47FF-02E7-4E38-B7FC-6FDE442308DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFED47FF-02E7-4E38-B7FC-6FDE442308DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CFED47FF-02E7-4E38-B7FC-6FDE442308DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0F98F9D-A46E-4724-9676-60C86A3E0C58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0F98F9D-A46E-4724-9676-60C86A3E0C58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0F98F9D-A46E-4724-9676-60C86A3E0C58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0F98F9D-A46E-4724-9676-60C86A3E0C58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

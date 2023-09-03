@@ -1,49 +1,79 @@
 ﻿using BenchmarkDotNet.Attributes;
-using SearchingBenchmarkApp.Models;
-using SearchingBenchmarkApp.Services;
 
 namespace SearchingBenchmarkApp;
 
+[MemoryDiagnoser]
 public class Benchmark
 {
-    private static readonly int[] Ids = 
-    { 
-        1, 7, 10, 12, 15, 17, 20, 59, 100, 123, 144, 200, 201, 204, 244, 256, 300, 399, 401, 540, 600, 700, 800, 900,
-        901, 1000, 1001, 1002, 2003, 2100, 2201, 2500, 2757, 2800, 3010, 3111, 3456, 4154, 4567, 4975, 5314, 5464, 5799,
-        6145, 6248, 6451, 7001, 7545, 7745, 7846, 7944, 8000, 8001, 8124, 8214, 8314, 8469, 8666, 8712, 8722, 8732, 8999,
-        10000, 57999, 63000, 64012, 657845, 74300, 75322, 79777, 80000, 81011, 84632, 85444, 87999, 88456, 89666, 91000,
-    };
-    
-    private static readonly IEnumerable<DataFrame> Data;
+    private const int NumberOfElements = 100_000;
 
-    [Params(10, 100, 1000, 10_000, 100_000)]
-    public int Items { get; set; }
+    private static readonly List<int> Source = Enumerable.Range(0, NumberOfElements)
+        .OrderBy(i => Random.Shared.Next())
+        .ToList();
     
-    static Benchmark()
+    private readonly SortedList<int, int> _sortedList = new();
+    private readonly SortedSet<int> _sortedSet = new();
+    private readonly List<int> _list = new();
+    private readonly HashSet<int> _set = new();
+    private readonly LinkedList<int> _linkedList = new();
+    
+    public Benchmark()
     {
-        Data = Enumerable.Range(1, 100_000).Select(d => new DataFrame
+        foreach(var i in Source)
         {
-            Id = d,
-            Timestamp = new DateTimeOffset(2020, 1, 1, 12, 0, 0, TimeSpan.Zero).AddDays(d),
-            X = Random.Shared.NextDouble(),
-            Y = Random.Shared.NextDouble(),
-            Z = Random.Shared.NextDouble()
-        });
+            _sortedList.Add(i, i);
+            _sortedSet.Add(i);
+            _list.Add(i);
+            _set.Add(i);
+            _linkedList.AddLast(i);
+        }
     }
+    
 
     [Benchmark]
-    public void RunList()
+    [ArgumentsSource(nameof(Items))]
+    public void FindInSortedList(int itemToFind)
     {
-        var service = new DataService(Data.Take(Items));
-
-        _ = service.ProcessDataUsingList(Ids);
+        _sortedList.TryGetValue(itemToFind, out var item);
     }
     
     [Benchmark]
-    public void RunDictionary()
+    [ArgumentsSource(nameof(Items))]
+    public void FindInSortedSet(int itemToFind)
     {
-        var service = new DataService(Data.Take(Items));
+        _sortedSet.TryGetValue(itemToFind, out var item);
+    }
+    
+    [Benchmark]
+    [ArgumentsSource(nameof(Items))]
+    public void FindInList(int itemToFind)
+    {
+        var item = _list.Find(i => i == itemToFind);
+    }
 
-        _ = service.ProcessDataUsingDictionary(Ids);
+    [Benchmark]
+    [ArgumentsSource(nameof(Items))]
+    public void FindInSet(int itemToFind)
+    {
+        _ = _set.TryGetValue(itemToFind, out var item);
+    }
+
+    [Benchmark]
+    [ArgumentsSource(nameof(Items))]
+    public void FindInLinkedList(int itemToFind)
+    {
+        var item = _linkedList.Find(itemToFind);
+    }
+
+    public IEnumerable<object> Items()
+    {
+        // Find first element
+        yield return Source[0];
+        
+        // Find element in the middle
+        yield return Source[NumberOfElements / 2];
+        
+        // Find last element
+        yield return Source[NumberOfElements - 1];
     }
 }

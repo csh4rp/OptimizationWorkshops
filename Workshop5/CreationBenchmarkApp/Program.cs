@@ -1,4 +1,4 @@
 ﻿using BenchmarkDotNet.Running;
-using IterationBenchmarkApp;
+using CreationBenchmarkApp;
 
 BenchmarkRunner.Run<Benchmark>();

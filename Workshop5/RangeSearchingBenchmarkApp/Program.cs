@@ -1,4 +1,4 @@
 ﻿using BenchmarkDotNet.Running;
-using EnumerableBenchmark;
+using RangeSearchingBenchmarkApp;
 
 BenchmarkRunner.Run<Benchmark>();

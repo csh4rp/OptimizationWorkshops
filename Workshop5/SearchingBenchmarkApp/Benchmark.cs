@@ -8,7 +8,7 @@ public class Benchmark
     private const int NumberOfElements = 100_000;
 
     private static readonly List<int> Source = Enumerable.Range(0, NumberOfElements)
-        .OrderBy(i => Random.Shared.Next())
+        // .OrderBy(i => Random.Shared.Next())
         .ToList();
     
     private readonly SortedList<int, int> _sortedList = new();
@@ -23,13 +23,13 @@ public class Benchmark
         {
             _sortedList.Add(i, i);
             _sortedSet.Add(i);
-            _list.Add(i);
             _set.Add(i);
             _linkedList.AddLast(i);
         }
+
+        _list = Source;
     }
     
-
     [Benchmark]
     [ArgumentsSource(nameof(Items))]
     public void FindInSortedList(int itemToFind)
@@ -48,7 +48,16 @@ public class Benchmark
     [ArgumentsSource(nameof(Items))]
     public void FindInList(int itemToFind)
     {
-        var item = _list.Find(i => i == itemToFind);
+        int item;
+        
+        for (int i = 0; i < _list.Count; i++)
+        {
+            if (_list[i] == itemToFind)
+            {
+                item = _list[i];
+                break;
+            }
+        }
     }
 
     [Benchmark]

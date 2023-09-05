@@ -14,6 +14,7 @@ public class Benchmark
     private readonly SortedList<int, int> _sortedList = new();
     private readonly SortedSet<int> _sortedSet = new();
     private readonly List<int> _list = new();
+    private readonly List<int> _listWithSortedItems = new();
     private readonly HashSet<int> _set = new();
     private readonly LinkedList<int> _linkedList = new();
     
@@ -26,7 +27,10 @@ public class Benchmark
             _list.Add(i);
             _set.Add(i);
             _linkedList.AddLast(i);
+            _listWithSortedItems.Add(i);
         }
+        
+        _listWithSortedItems.Sort();
     }
     
 
@@ -68,6 +72,16 @@ public class Benchmark
             .Take((range.End.Value - range.Start.Value) + 1)
             .ToList();
     }
+    
+    [Benchmark]
+    [ArgumentsSource(nameof(Ranges))]
+    public void FindInListWithSortedItems(Range range)
+    {
+        var values = _listWithSortedItems
+            .Where(i => i >= range.Start.Value && i <= range.End.Value)
+            .Take((range.End.Value - range.Start.Value) + 1)
+            .ToList();
+    }
 
     [Benchmark]
     [ArgumentsSource(nameof(Ranges))]
@@ -97,7 +111,8 @@ public class Benchmark
         // Find last
         yield return new Range(Source.Last(), Source.Last());
         
-        yield return new Range(70_000, 70_010);
-        yield return new Range(70_000, 80_000);
+        yield return new Range(50_000, 50_010);
+        
+        yield return new Range(50_000, 60_000);
     }
 }

@@ -56,7 +56,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreationBenchmarkApp", "Wor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnumerableBenchmarkApp", "Workshop5\EnumerableBenchmarkApp\EnumerableBenchmarkApp.csproj", "{1D5026B4-FFE5-49C9-8F91-0D760DA24F7E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValueTaskBenchmarkApp", "Workshop6\ValueTaskBenchmarkApp\ValueTaskBenchmarkApp.csproj", "{B0476432-742D-4ED7-9F42-36405CA0AA57}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncBenchmarkApp", "Workshop6\AsyncBenchmarkApp\AsyncBenchmarkApp.csproj", "{B0476432-742D-4ED7-9F42-36405CA0AA57}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FalseSharingBenchmark", "Workshop7\FalseSharingBenchmark\FalseSharingBenchmark.csproj", "{C5123398-7F2E-4B8D-B6AA-7B5B6B584BA5}"
 EndProject

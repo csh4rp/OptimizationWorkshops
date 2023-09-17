@@ -1,17 +1,24 @@
+using Microsoft.AspNetCore.Mvc;
+using WebBackendApp.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-ThreadPool.SetMinThreads(500, 500);
-
 app.MapGet("/get-async", async () =>
 {
-    await Task.Delay(50);
+    await Task.Delay(100);
     return Results.NoContent();
 });
 
 app.MapGet("/get-sync", () =>
 {
-    Thread.Sleep(50);
+    Thread.Sleep(100);
+    return Results.NoContent();
+});
+
+app.MapPost("/set-threadpool", ([FromBody] SetThreadPoolRequest request) =>
+{
+    ThreadPool.SetMinThreads(request.Threads, request.Threads);
     return Results.NoContent();
 });
 

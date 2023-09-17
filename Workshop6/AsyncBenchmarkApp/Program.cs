@@ -1,4 +1,4 @@
 ﻿using BenchmarkDotNet.Running;
-using ValueTaskBenchmarkApp;
+using AsyncBenchmarkApp;
 
 BenchmarkRunner.Run<Benchmark>();

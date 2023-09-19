@@ -8,26 +8,44 @@ namespace AsyncBenchmarkApp;
 public class Benchmark
 {
     [Benchmark]
-    public async Task RunTask()
+    public async Task RunFinishedTask()
     {
-        _ = await DataService.RunTask();
+        _ = await DataService.RunFinishedTask();
+    }
+    
+    [Benchmark]
+    public async Task RunTaskYield()
+    {
+        _ = await DataService.RunTaskYield();
     }
 
     [Benchmark]
-    public async Task RunTaskAsync()
+    public async Task RunAwaitCompletedTask()
     {
-        _ = await DataService.RunTaskAsync();
+        _ = await DataService.RunAwaitCompletedTask();
     }
-
+    
     [Benchmark]
-    public async Task RunValueTask()
+    public async Task RunAwaitCompletedValueTask()
     {
-        _ = await DataService.RunValueTask();
+        _ = await DataService.RunAwaitCompletedValueTask();
     }
-
+    
     [Benchmark]
-    public async Task RunValueTaskAsync()
+    public async Task RunCachedTask()
     {
-        _ = await DataService.RunValueTaskAsync();
+        _ = await DataService.RunCachedTask();
+    }
+    
+    [Benchmark]
+    public async Task RunFinishedValueTask()
+    {
+        _ = await DataService.RunFinishedValueTask();
+    }
+    
+    [Benchmark]
+    public async Task RunValueTaskYield()
+    {
+        _ = await DataService.RunValueTaskYield();
     }
 }

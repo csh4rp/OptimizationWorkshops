@@ -68,6 +68,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebBackendApp", "Workshop6\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBomberApp", "Workshop6\NBomberApp\NBomberApp.csproj", "{BC53B503-F694-450D-ADD6-1C24225AD1BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeInvocationBenchmarkApp", "Workshop8\CodeInvocationBenchmarkApp\CodeInvocationBenchmarkApp.csproj", "{951211E1-4D96-43A9-B4A3-BE84087FFCD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeInvocationGenerationApp", "Workshop8\CodeInvocationGenerationApp\CodeInvocationGenerationApp\CodeInvocationGenerationApp.csproj", "{31FCA825-3B88-4CA4-9C30-B124DE52463E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -100,6 +104,8 @@ Global
 		{6FBF7257-1D07-457A-8958-418B857D053E} = {B0708FE7-F397-42F7-8817-842A77039369}
 		{C2EEB494-D85E-4076-985C-53F664FF0527} = {CCD50858-5FC9-4519-8EE8-4712161E9EC3}
 		{BC53B503-F694-450D-ADD6-1C24225AD1BC} = {CCD50858-5FC9-4519-8EE8-4712161E9EC3}
+		{951211E1-4D96-43A9-B4A3-BE84087FFCD7} = {420E5B7F-177E-4357-B99B-CAED707580BD}
+		{31FCA825-3B88-4CA4-9C30-B124DE52463E} = {420E5B7F-177E-4357-B99B-CAED707580BD}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{99C75B08-0946-4FD8-81A7-CBD43C12271B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -206,5 +212,13 @@ Global
 		{BC53B503-F694-450D-ADD6-1C24225AD1BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC53B503-F694-450D-ADD6-1C24225AD1BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC53B503-F694-450D-ADD6-1C24225AD1BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{951211E1-4D96-43A9-B4A3-BE84087FFCD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{951211E1-4D96-43A9-B4A3-BE84087FFCD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{951211E1-4D96-43A9-B4A3-BE84087FFCD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{951211E1-4D96-43A9-B4A3-BE84087FFCD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31FCA825-3B88-4CA4-9C30-B124DE52463E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31FCA825-3B88-4CA4-9C30-B124DE52463E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31FCA825-3B88-4CA4-9C30-B124DE52463E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31FCA825-3B88-4CA4-9C30-B124DE52463E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
